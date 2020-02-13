@@ -39,12 +39,15 @@ namespace GC_Lab_5._3
             return false;
         }
 
-       public IList<Car> ListCars()
+       public List<Car> ListCars()
         {
             var outputList = new List<Car>();
             foreach (Car car in lot)
             {
-                outputList.Add(car);
+                if (car != null)
+                {
+                    outputList.Add(car);
+                }
             }
 
             return outputList;

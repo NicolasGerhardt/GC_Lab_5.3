@@ -21,7 +21,7 @@ namespace GC_Lab_5._3
 
         public override string ToString()
         {
-            return base.ToString() + $"| Mileage {mileage:0.0}";
+            return base.ToString() + $" Mileage {mileage,8:0.0}";
         }
 
     }

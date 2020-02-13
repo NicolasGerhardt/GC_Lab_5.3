@@ -26,7 +26,7 @@ namespace GC_Lab_5._3
             make = "Ford";
             model = "Fusion";
             year = 2020;
-            price = 0.0;
+            price = 30_000.0;
         }
 
         public Car(string make, string model, int year, double price)
@@ -41,7 +41,7 @@ namespace GC_Lab_5._3
 
         public override string ToString()
         {
-            return $"({CarID}){Make} {Model} {Year} {Price.ToString("C")}";
+            return $"|{Year,-4}|{Make,-12}|{Model,-12}|Price: {Price.ToString("C"),10}|";
         }
     }
 }
