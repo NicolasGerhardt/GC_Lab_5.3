@@ -22,5 +22,50 @@ namespace GC_Lab_5._3
             lot = new Car[Width, Length];
         }
 
+        public bool AddCar(Car car)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < length; y++)
+                {
+                    if (lot[x,y] == null)
+                    {
+                        lot[x, y] = car;
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+       public IList<Car> ListCars()
+        {
+            var outputList = new List<Car>();
+            foreach (Car car in lot)
+            {
+                outputList.Add(car);
+            }
+
+            return outputList;
+
+        }
+
+        public bool RemoveCar(Car car)
+        {
+            for (int X = 0; X < width; X++)
+            {
+                for (int Y = 0; Y < length; Y++)
+                {
+                    if (car == lot[X,Y])
+                    {
+                        lot[X, Y] = null;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
     }
 }
