@@ -6,7 +6,7 @@ namespace GC_Lab_5._3
 {
     public class Car
     {
-        private static int carID;
+        private int carID;
         private static int count = 0;
         private string make;
         private string model;
@@ -41,7 +41,7 @@ namespace GC_Lab_5._3
 
         public override string ToString()
         {
-            return $"|{Year,-4}|{Make,-12}|{Model,-12}|Price: {Price.ToString("C"),10}|";
+            return $"| {Year,-4} | {Make,-12} | {Model,-12} | {Price.ToString("C"),10} |";
         }
     }
 }

@@ -70,5 +70,16 @@ namespace GC_Lab_5._3
             return false;
         }
 
+        internal void RemoveCar(int carID)
+        {
+            foreach (Car car in lot)
+            {
+                if (car.CarID == carID)
+                {
+                    RemoveCar(car);
+                    return;
+                }
+            }
+        }
     }
 }
