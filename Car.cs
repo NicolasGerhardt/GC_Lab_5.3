@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GC_Lab_5._3
 {
-    class Car
+    public class Car
     {
         private static int carID;
         private static int count = 0;

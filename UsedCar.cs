@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GC_Lab_5._3
 {
-    class UsedCar : Car
+    public class UsedCar : Car
     {
         private double mileage;
 
