@@ -57,7 +57,7 @@ namespace GC_Lab_5._3
             // Show list of cars
             showListofAllCarsOnLot(mainLot);
             // Get ID from user
-            int carID = int.Parse(GetStringFromUser("Enter Car ID you are interested in: "));
+            int carID = Validator.IntFromUser("Enter Car ID you are interested in: ", 0, mainLot.Length); 
             // Remove Car ID from Lot
             mainLot.RemoveCar(carID);
             // Thank them for their business
@@ -68,43 +68,23 @@ namespace GC_Lab_5._3
         private static Car GetCarInfoFromUser()
         {
             Console.WriteLine("What type of car are you selling?");
-            string make = GetStringFromUser("   Make: ");
-            string model = GetStringFromUser("  Model: ");
-            int year = int.Parse(GetStringFromUser("   Year: ")); //TODO: Validation
-            double mileage = double.Parse(GetStringFromUser("Mileage: ")); //TODO: Validation
-            double price = double.Parse(GetStringFromUser("  Price: ")); //TODO: Validation
+            string make = Validator.GetStringFromUser("   Make: ");
+            string model = Validator.GetStringFromUser("  Model: ");
+            int year = Validator.IntFromUser("   Year: ", 1800, 9999); 
+            double mileage = Validator.DoubleFromUser("Mileage: ", 0, double.MaxValue);
+            double price = Validator.DoubleFromUser("  Price: ", 0, double.MaxValue);
 
             return new UsedCar(make, model, year, price, mileage);
         }
 
-        private static string GetStringFromUser(string prompt)
-        {
-            Console.Write(prompt);
-            return Console.ReadLine();
-        }
-
-        private static int GetOperationChoiceFromUser()
-        {
-            // Show them what they can do
-            Console.WriteLine("Do you want to Sell, Buy or See what we have in stock?");
-            // Ask what they want to do Add, List, or buy a car
-            Console.WriteLine("1: Sell");
-            Console.WriteLine("2: Buy");
-            Console.WriteLine("3: See Stock");
-            Console.WriteLine("4: Leave");
-            Console.Write("> ");
-            // Get int from user
-            int choice = int.Parse(Console.ReadLine()); //TODO: Validation 
-            // return int
-            return choice;
-        }
+        
 
         private static void showListofAllCarsOnLot(CarLot lot)
         {
             List<Car> carList = lot.ListCars();
 
             Console.WriteLine("Here is our current inventory");
-            Console.WriteLine("*********************************************************");
+            Console.WriteLine("**************************************************************");
             Console.WriteLine($"{"ID",-3} | {"Type",-3} | {"Year",-4} | {"Make",-12} | {"Model",-12} | {"Price",10} |");
 
             foreach (Car car in carList)
@@ -124,6 +104,21 @@ namespace GC_Lab_5._3
             Console.WriteLine();
 
 
+        }
+
+        private static int GetOperationChoiceFromUser()
+        {
+            // Show them what they can do
+            Console.WriteLine("Do you want to Sell, Buy or See what we have in stock?");
+            // Ask what they want to do Add, List, or buy a car
+            Console.WriteLine("1: Sell");
+            Console.WriteLine("2: Buy");
+            Console.WriteLine("3: See Stock");
+            Console.WriteLine("4: Leave");
+            // Get int from user
+            int choice = Validator.IntFromUser("> ", 1, 4);
+            // return int
+            return choice;
         }
     }
 }
