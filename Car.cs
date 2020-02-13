@@ -19,7 +19,7 @@ namespace GC_Lab_5._3
         public double Price { get => price; set => price = value; }
         public int CarID { get => carID; }
 
-        Car()
+        public Car()
         {
             carID = count;
             count++;
@@ -37,6 +37,11 @@ namespace GC_Lab_5._3
             this.model = model;
             this.year = year;
             this.price = price;
+        }
+
+        public override string ToString()
+        {
+            return $"({CarID}){Make} {Model} {Year} {Price.ToString("C")}";
         }
     }
 }
